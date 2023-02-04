@@ -13,7 +13,6 @@ public class DialogueController : MonoBehaviour
     public TMP_Text message;
     public Image character;
     private Coroutine writingCoroutine;
-    public bool dialogueActive = false;
 
     IEnumerator TypeText(string fullMessage)
     {
@@ -26,10 +25,9 @@ public class DialogueController : MonoBehaviour
 
     public void StartDialogue()
     {
-        dialogueActive = true;
-
         speaker.text = activeEntry.speaker;
         message.text = "";
+        character.sprite = activeEntry.img;
 
         dialogueBox.SetActive(true);
 
@@ -42,29 +40,45 @@ public class DialogueController : MonoBehaviour
         // load new line of dialogue
         if(callback == "next")
         {
-            AssetDatabase.FindAssets(parameters[0], new[] {"Assets/DialogueEntries"});
+            string[] newEntries = AssetDatabase.FindAssets(parameters[0], new[] {"Assets/DialogueEntries"}); // returns array of GUIDs
+            if(newEntries.Length > 1)
+            {
+                Debug.LogError("DIALOGUE ERROR: There are multiple dialogue entries with the specified filename (" + parameters[0] + "). Please change them to be unique.");
+            }
+            else if(newEntries.Length < 1)
+            {
+                Debug.LogError("DIALOGUE ERROR: There are no dialogue entries with the specified filename (" + parameters[0] + "). Please change the parameter to a valid dialogue entry, or change the callback function.");
+            }
+            else
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(newEntries[0]);
+                activeEntry = AssetDatabase.LoadAssetAtPath<DialogueEntry>(assetPath);
+                StartDialogue();
+            }
         }
+    }
+
+    void Start()
+    {
+        StartDialogue();
     }
 
     void Update()
     {
-        if (dialogueActive)
+        if (Input.GetKeyDown(KeyCode.Space) && dialogueBox.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && dialogueBox.activeSelf)
+            // if we are still typing out the message, autocomplete it
+            if (activeEntry.message != message.text)
             {
-                // if we are still typing out the message, autocomplete it
-                if (activeEntry.message != message.text)
-                {
-                    // stop the writing routine
-                    StopCoroutine(writingCoroutine);
-                    // complete the message
-                    message.SetText(activeEntry.message);
-                }
-                // else text is fully typed, so do callback
-                else
-                {
-                    HandleCallback(activeEntry.callback, activeEntry.parameters);
-                }
+                // stop the writing routine
+                StopCoroutine(writingCoroutine);
+                // complete the message
+                message.SetText(activeEntry.message);
+            }
+            // else text is fully typed, so do callback
+            else
+            {
+                HandleCallback(activeEntry.callback, activeEntry.parameters);
             }
         }
     }
