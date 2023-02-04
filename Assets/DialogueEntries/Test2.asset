@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126e3b966b58324459880d218e488ee7, type: 3}
   m_Name: Test2
   m_EditorClassIdentifier: 
-  speaker: Test 1
-  message: This is test dialogue entry one.
-  img: {fileID: 21300000, guid: b6abb194eece4e24c89ed28315852793, type: 3}
-  callback: 
+  speaker: Test 2
+  message: This is test dialogue entry two.
+  img: {fileID: 21300000, guid: 0424eb4f288c92a469d2b0c56f8bd5eb, type: 3}
+  callback: next
   parameters:
-  - Test2
+  - Test1
