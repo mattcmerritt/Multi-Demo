@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Test1
   m_EditorClassIdentifier: 
   speaker: Test 1
-  message: 
-  img: {fileID: 0}
+  message: This is test dialogue entry one.
+  img: {fileID: 21300000, guid: b6abb194eece4e24c89ed28315852793, type: 3}
   callback: 
-  parameters: []
+  parameters:
+  - Test2
