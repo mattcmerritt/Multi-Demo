@@ -10,5 +10,5 @@ public class DialogueEntry : ScriptableObject
     public string message;
     public Sprite img;
     public string callback;
-    public string[] parameters;
+    public Object[] parameters;
 }

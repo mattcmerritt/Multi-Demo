@@ -17,4 +17,4 @@ MonoBehaviour:
   img: {fileID: 21300000, guid: b6abb194eece4e24c89ed28315852793, type: 3}
   callback: next
   parameters:
-  - Test2
+  - {fileID: 11400000, guid: 391c34f5f3c44634c877218de5cb67ff, type: 2}

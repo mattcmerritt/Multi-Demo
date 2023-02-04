@@ -13,6 +13,8 @@ public class DialogueController : MonoBehaviour
     public TMP_Text message;
     public Image character;
     private Coroutine writingCoroutine;
+    public GameObject characterSelectUI;
+    public GameObject conversationUI;
 
     IEnumerator TypeText(string fullMessage)
     {
@@ -29,38 +31,46 @@ public class DialogueController : MonoBehaviour
         message.text = "";
         character.sprite = activeEntry.img;
 
+        characterSelectUI.SetActive(false);
+        conversationUI.SetActive(true);
         dialogueBox.SetActive(true);
 
         // start the message typing
         writingCoroutine = StartCoroutine(TypeText(activeEntry.message));
     }
 
-    public void HandleCallback(string callback, string[] parameters)
+    // only works in editor
+    // public void HandleCallback(string callback, string[] parameters)
+    // {
+    //     // load new line of dialogue
+    //     if(callback == "next")
+    //     {
+    //         string[] newEntries = AssetDatabase.FindAssets(parameters[0], new[] {"Assets/DialogueEntries"}); // returns array of GUIDs
+    //         if(newEntries.Length > 1)
+    //         {
+    //             Debug.LogError("DIALOGUE ERROR: There are multiple dialogue entries with the specified filename (" + parameters[0] + "). Please change them to be unique.");
+    //         }
+    //         else if(newEntries.Length < 1)
+    //         {
+    //             Debug.LogError("DIALOGUE ERROR: There are no dialogue entries with the specified filename (" + parameters[0] + "). Please change the parameter to a valid dialogue entry, or change the callback function.");
+    //         }
+    //         else
+    //         {
+    //             string assetPath = AssetDatabase.GUIDToAssetPath(newEntries[0]);
+    //             activeEntry = AssetDatabase.LoadAssetAtPath<DialogueEntry>(assetPath);
+    //             StartDialogue();
+    //         }
+    //     }
+    // }
+
+    public void HandleCallback(string callback, Object[] parameters)
     {
         // load new line of dialogue
         if(callback == "next")
         {
-            string[] newEntries = AssetDatabase.FindAssets(parameters[0], new[] {"Assets/DialogueEntries"}); // returns array of GUIDs
-            if(newEntries.Length > 1)
-            {
-                Debug.LogError("DIALOGUE ERROR: There are multiple dialogue entries with the specified filename (" + parameters[0] + "). Please change them to be unique.");
-            }
-            else if(newEntries.Length < 1)
-            {
-                Debug.LogError("DIALOGUE ERROR: There are no dialogue entries with the specified filename (" + parameters[0] + "). Please change the parameter to a valid dialogue entry, or change the callback function.");
-            }
-            else
-            {
-                string assetPath = AssetDatabase.GUIDToAssetPath(newEntries[0]);
-                activeEntry = AssetDatabase.LoadAssetAtPath<DialogueEntry>(assetPath);
-                StartDialogue();
-            }
+            activeEntry = (DialogueEntry) parameters[0];
+            StartDialogue();
         }
-    }
-
-    void Start()
-    {
-        StartDialogue();
     }
 
     void Update()
