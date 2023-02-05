@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082209425eec6c445ab97aadfba32a59, type: 3}
+  m_Name: BridgetFile
+  m_EditorClassIdentifier: 
+  title: Bridget Triothe
+  content: "20 years old\r\nSuspect:\r\n\tPotential Motive: Rebel - It is public
+    knowledge that Bridget Triothe has declared she will not be taking marital suitors
+    for the long-term foreseeable future. This being against the wishes of her grandparents,
+    and great-grandparents alike, has made quite a stir amongst her familial relations.\r\n"
