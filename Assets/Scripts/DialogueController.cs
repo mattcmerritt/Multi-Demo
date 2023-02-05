@@ -71,6 +71,11 @@ public class DialogueController : MonoBehaviour
             activeEntry = (DialogueEntry) parameters[0];
             StartDialogue();
         }
+        else if (callback == "return")
+        {
+            conversationUI.SetActive(false);
+            characterSelectUI.SetActive(true);
+        }
     }
 
     void Update()
