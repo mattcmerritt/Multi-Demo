@@ -2787,7 +2787,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Scott
+  m_text: 'Richard
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3268,6 +3270,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArticlePanel: {fileID: 449746444}
   FamilyTree: {fileID: 1037776951}
+  Articles:
+  - {fileID: 11400000, guid: 181d570ccbb76a746a846dd9830451a1, type: 2}
+  - {fileID: 11400000, guid: 382292bd616a1b646be7502fd719e46e, type: 2}
+  - {fileID: 11400000, guid: 06a96365892980f47a8259ea498446d3, type: 2}
+  - {fileID: 11400000, guid: dda4a0042e436bb4ba45d94c2aae6827, type: 2}
+  - {fileID: 11400000, guid: 3b00c190a6d5fbf4d850ee8c0f1e6ab7, type: 2}
+  - {fileID: 11400000, guid: d88691eadbaa40e4eb0cc1eca846367c, type: 2}
+  - {fileID: 11400000, guid: 839668d44e89e0b44acfab4dcd7c483b, type: 2}
+  - {fileID: 11400000, guid: d8278e5c8eacbc148a8202f6c5826c1b, type: 2}
+  - {fileID: 11400000, guid: 48573bf0c6ddfaa4086d47cd79d5549d, type: 2}
+  - {fileID: 11400000, guid: fe08e89c12c6a844c82476e3623840d8, type: 2}
+  - {fileID: 11400000, guid: d0c101045be98964eb125224c9d05ba4, type: 2}
+  ArticleSelect: {fileID: 276686347}
+  Title: {fileID: 1463179394}
+  Content: {fileID: 487512527}
 --- !u!1 &434279320
 GameObject:
   m_ObjectHideFlags: 0
@@ -13823,7 +13840,7 @@ GameObject:
   - component: {fileID: 1627277085}
   - component: {fileID: 1627277084}
   m_Layer: 5
-  m_Name: Scott
+  m_Name: Richard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
