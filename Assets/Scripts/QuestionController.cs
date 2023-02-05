@@ -19,6 +19,7 @@ public class QuestionController : MonoBehaviour
     private float xi1, xi2, xi3, xi4, xi5;
     public DialogueEntry next1, next2, next3, next4, next5;
     private Coroutine movingCoroutine;
+    private Coroutine resizeCoroutine;
     public DialogueController dc;
     public DialogueEntry charSelect;
     public DialogueEntry next;
@@ -38,7 +39,7 @@ public class QuestionController : MonoBehaviour
     {
         RectTransform rt = character.GetComponent<RectTransform>();
 
-        for(int i = 0; i <=100; i++) 
+        for(int i = 0; i <= 100; i++) 
         {
             rt.position = Vector3.Lerp(new Vector3(initx, rt.position.y, rt.position.z), new Vector3(newx, rt.position.y, rt.position.z), i*0.01f);
             yield return new WaitForSeconds(0.01f);
@@ -55,6 +56,23 @@ public class QuestionController : MonoBehaviour
         }
     }
 
+    IEnumerator ResizeSpeaker(GameObject character, bool growing)
+    {
+        RectTransform rt = character.GetComponent<RectTransform>();
+        for(int i = 0; i <= 100; i++) 
+        {
+            if(growing)
+            {
+                rt.localScale += new Vector3(0.005f, 0.005f, 0);
+            }
+            else
+            {
+                rt.localScale -= new Vector3(0.005f, 0.005f, 0);
+            }
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
     public void OnCharacterSelect(int number)
     {
         if(number == 1) 
@@ -68,6 +86,7 @@ public class QuestionController : MonoBehaviour
             char5.SetActive(false);
             // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char1, xi1, 500, false));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char1, true));
             // disable button
             char1.GetComponent<Button>().interactable = false;
         }
@@ -82,6 +101,7 @@ public class QuestionController : MonoBehaviour
             char5.SetActive(false);
             // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char2, xi2, 500, false));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char2, true));
             // disable button
             char2.GetComponent<Button>().interactable = false;
         }
@@ -96,6 +116,7 @@ public class QuestionController : MonoBehaviour
             char5.SetActive(false);
             // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char3, xi3, 500, false));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char3, true));
             // disable button
             char3.GetComponent<Button>().interactable = false;
         }
@@ -110,6 +131,7 @@ public class QuestionController : MonoBehaviour
             char5.SetActive(false);
             // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char4, xi4, 500, false));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char4, true));
             // disable button
             char4.GetComponent<Button>().interactable = false;
         }
@@ -124,6 +146,7 @@ public class QuestionController : MonoBehaviour
             char4.SetActive(false);
             // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char5, xi5, 500, false));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char5, true));
             // disable button
             char5.GetComponent<Button>().interactable = false;
         }
@@ -137,22 +160,27 @@ public class QuestionController : MonoBehaviour
         if(char1.activeSelf)
         {
             movingCoroutine = StartCoroutine(MoveToLocation(char1, 500, xi1, true));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char1, false));
         }
         if(char2.activeSelf)
         {
             movingCoroutine = StartCoroutine(MoveToLocation(char2, 500, xi2, true));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char2, false));
         }
         if(char3.activeSelf)
         {
             movingCoroutine = StartCoroutine(MoveToLocation(char3, 500, xi3, true));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char3, false));
         }
         if(char4.activeSelf)
         {
             movingCoroutine = StartCoroutine(MoveToLocation(char4, 500, xi4, true));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char4, false));
         }
         if(char5.activeSelf)
         {
             movingCoroutine = StartCoroutine(MoveToLocation(char5, 500, xi5, true));
+            resizeCoroutine = StartCoroutine(ResizeSpeaker(char5, false));
         }
         
     }

@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: mar-see8
   m_EditorClassIdentifier: 
   speaker: Marshall
-  message: "Well, Carlyle and him were fighting, and I decided to spend my time doing
-    a spa day day with them instead. In hindsight, I should have just gotten the
-    two of them to make up, but Carlyle is my baby sibling, and I know our grandfather
-    was always being\u2026 unreasonable with them."
+  message: Well, Carlyle and him were fighting, and I decided to spend my time doing
+    a spa day day with them instead.
   callback: next
   parameters:
-  - {fileID: 11400000, guid: 64b189361a7d603419a307ec3cc423ad, type: 2}
+  - {fileID: 11400000, guid: a541b9ef70e3a03409722a42275375cf, type: 2}
