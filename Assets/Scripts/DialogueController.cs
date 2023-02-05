@@ -28,6 +28,14 @@ public class DialogueController : MonoBehaviour
     public void StartDialogue()
     {
         speaker.text = activeEntry.speaker;
+        if(activeEntry.speaker == "") 
+        {
+            message.fontStyle = FontStyles.Italic;
+        }
+        else
+        {
+            message.fontStyle = FontStyles.Normal;
+        }
         message.text = "";
 
         speakerBox.SetActive(true);
@@ -94,7 +102,7 @@ public class DialogueController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && dialogueBox.activeSelf)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && dialogueBox.activeSelf)
         {
             // if we are still typing out the message, autocomplete it
             if (activeEntry.message != message.text)

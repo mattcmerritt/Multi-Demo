@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126e3b966b58324459880d218e488ee7, type: 3}
+  m_Name: mar-intro2
+  m_EditorClassIdentifier: 
+  speaker: Agent Red
+  message: "Marshall, it\u2019s so lovely to see you again! Though I wish it was
+    under better circumstances, of course."
+  callback: next
+  parameters:
+  - {fileID: 11400000, guid: 995b1832b3a905547a8ae83cca673ddb, type: 2}
