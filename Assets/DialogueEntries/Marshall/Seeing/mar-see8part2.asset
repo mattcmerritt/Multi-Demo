@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126e3b966b58324459880d218e488ee7, type: 3}
+  m_Name: mar-see8part2
+  m_EditorClassIdentifier: 
+  speaker: Marshall
+  message: "Well, Carlyle and him were fighting, and I decided to spend my time doing
+    a spa day day with them instead. In hindsight, I should have just gotten the
+    two of them to make up, but Carlyle is my baby sibling, and I know our grandfather
+    was always being\u2026 unreasonable with them."
+  callback: next
+  parameters:
+  - {fileID: 11400000, guid: 64b189361a7d603419a307ec3cc423ad, type: 2}

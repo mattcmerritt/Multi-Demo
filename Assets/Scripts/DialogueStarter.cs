@@ -18,10 +18,12 @@ public class DialogueStarter : MonoBehaviour
     {
         dc.HandleCallback("next", new Object[] {entry});
 
+        dc.questionsUp = false;
+
         // destroy children questions buttons
         foreach (Transform t in questionsBox.transform)
         {
-            UnityEngine.Object.Destroy(t.gameObject);
+            Destroy(t.gameObject);
         }
     }
 }

@@ -15,6 +15,8 @@ public class DialogueController : MonoBehaviour
     private Coroutine writingCoroutine;
     public GameObject characterSelectUI;
     public GameObject conversationUI;
+    public QuestionController qc;
+    public bool questionsUp = false;
 
     IEnumerator TypeText(string fullMessage)
     {
@@ -83,11 +85,13 @@ public class DialogueController : MonoBehaviour
             characterSelectUI.SetActive(true);
             activeEntry = (DialogueEntry) parameters[0];
             StartDialogue();
+            qc.MoveBack();
             speakerBox.SetActive(false);
         }
-        else if (callback == "question_select")
+        else if (callback == "questions")
         {
-
+            qc.LoadQuestions();
+            questionsUp = true;
         }
         else if (callback == "ignore")
         {
@@ -102,7 +106,7 @@ public class DialogueController : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && dialogueBox.activeSelf)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && dialogueBox.activeSelf && !questionsUp)
         {
             // if we are still typing out the message, autocomplete it
             if (activeEntry.message != message.text)

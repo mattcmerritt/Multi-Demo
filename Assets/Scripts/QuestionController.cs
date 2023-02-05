@@ -52,11 +52,6 @@ public class QuestionController : MonoBehaviour
             char4.SetActive(true);
             char5.SetActive(true);
             character.GetComponent<Button>().interactable = true;
-            dc.HandleCallback("character_select", new Object[] {charSelect});
-        }
-        else
-        {
-            dc.HandleCallback("next", new Object[] {next});
         }
     }
 
@@ -71,7 +66,7 @@ public class QuestionController : MonoBehaviour
             char3.SetActive(false);
             char4.SetActive(false);
             char5.SetActive(false);
-            // start the message typing
+            // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char1, xi1, 500, false));
             // disable button
             char1.GetComponent<Button>().interactable = false;
@@ -85,7 +80,7 @@ public class QuestionController : MonoBehaviour
             char3.SetActive(false);
             char4.SetActive(false);
             char5.SetActive(false);
-            // start the message typing
+            // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char2, xi2, 500, false));
             // disable button
             char2.GetComponent<Button>().interactable = false;
@@ -99,7 +94,7 @@ public class QuestionController : MonoBehaviour
             char2.SetActive(false);
             char4.SetActive(false);
             char5.SetActive(false);
-            // start the message typing
+            // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char3, xi3, 500, false));
             // disable button
             char3.GetComponent<Button>().interactable = false;
@@ -113,7 +108,7 @@ public class QuestionController : MonoBehaviour
             char2.SetActive(false);
             char3.SetActive(false);
             char5.SetActive(false);
-            // start the message typing
+            // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char4, xi4, 500, false));
             // disable button
             char4.GetComponent<Button>().interactable = false;
@@ -127,11 +122,39 @@ public class QuestionController : MonoBehaviour
             char2.SetActive(false);
             char3.SetActive(false);
             char4.SetActive(false);
-            // start the message typing
+            // start the moving
             movingCoroutine = StartCoroutine(MoveToLocation(char5, xi5, 500, false));
             // disable button
             char5.GetComponent<Button>().interactable = false;
         }
+
+        dc.HandleCallback("next", new Object[] {next});
+    }
+
+    public void MoveBack()
+    {
+        // start the moving
+        if(char1.activeSelf)
+        {
+            movingCoroutine = StartCoroutine(MoveToLocation(char1, 500, xi1, true));
+        }
+        if(char2.activeSelf)
+        {
+            movingCoroutine = StartCoroutine(MoveToLocation(char2, 500, xi2, true));
+        }
+        if(char3.activeSelf)
+        {
+            movingCoroutine = StartCoroutine(MoveToLocation(char3, 500, xi3, true));
+        }
+        if(char4.activeSelf)
+        {
+            movingCoroutine = StartCoroutine(MoveToLocation(char4, 500, xi4, true));
+        }
+        if(char5.activeSelf)
+        {
+            movingCoroutine = StartCoroutine(MoveToLocation(char5, 500, xi5, true));
+        }
+        
     }
 
     public void LoadQuestions()
@@ -141,6 +164,7 @@ public class QuestionController : MonoBehaviour
         {
             Destroy(t.gameObject);
         }
+        dc.questionsUp = false;
 
         foreach(Question q in activeQuestionSet)
         {

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126e3b966b58324459880d218e488ee7, type: 3}
+  m_Name: mar-ari3
+  m_EditorClassIdentifier: 
+  speaker: Marshall
+  message: I know she was devastated because she was there for breakfast that morning
+    and thinks she should have stayed. I do not know what she was doing otherwise
+    though.
+  callback: next
+  parameters:
+  - {fileID: 11400000, guid: d5c387c5b5aad0c4dbf13b10d04ca9d5, type: 2}
