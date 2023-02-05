@@ -9,6 +9,9 @@ public class SuspectUI : UILayer
     [SerializeField] private List<GameObject> Buttons;
     [SerializeField] private Button CloseButton;
     [SerializeField] private List<string> KeySuspects;
+    [SerializeField] private Button Submit;
+
+    private string Selected = "";
 
     private void Start()
     {
@@ -17,7 +20,7 @@ public class SuspectUI : UILayer
             Button btn = obj.GetComponent<Button>();
             btn.onClick.AddListener(() =>
             {
-                Debug.Log(obj.gameObject.name);
+                Selected = obj.gameObject.name;
             });
 
             if (KeySuspects.Contains(obj.gameObject.name))
@@ -31,9 +34,22 @@ public class SuspectUI : UILayer
             }
         }
 
-        CloseButton.onClick.AddListener(() =>
+        Submit.onClick.AddListener(() =>
         {
-            Deactivate();
+            GameManager gm = FindObjectOfType<GameManager>();
+            gm.InvokeGameChange("end", Selected);
         });
+    }
+
+    private void Update()
+    {
+        if (Selected == "")
+        {
+            Submit.interactable = false;
+        }
+        else
+        {
+            Submit.interactable = true;
+        }
     }
 }
