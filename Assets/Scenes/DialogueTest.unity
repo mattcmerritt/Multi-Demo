@@ -1768,7 +1768,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336c07085a4d38740879ff5860f99049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character1Questions: []
+  character1Questions:
+  - text: "What\u2019s in these pastries?"
+    available: 0
+    entry: {fileID: 0}
+  - text: How are you?
+    available: 0
+    entry: {fileID: 0}
+  - text: Where was Ariel last Tuesday?
+    available: 0
+    entry: {fileID: 0}
   character2Questions: []
   character3Questions:
   - text: "Can\u2019t predict an assassination\u2026 "
@@ -1790,11 +1799,11 @@ MonoBehaviour:
   char3: {fileID: 433867438}
   char4: {fileID: 1247339261}
   char5: {fileID: 1055494314}
-  next1: {fileID: 0}
-  next2: {fileID: 0}
+  next1: {fileID: 11400000, guid: b16f105a5e87e6a42b7119dc63974282, type: 2}
+  next2: {fileID: 11400000, guid: 7067a23d89415c444b3a100fa505bd02, type: 2}
   next3: {fileID: 11400000, guid: b5307c13813124244ade8facc681a297, type: 2}
-  next4: {fileID: 0}
-  next5: {fileID: 0}
+  next4: {fileID: 11400000, guid: 7067a23d89415c444b3a100fa505bd02, type: 2}
+  next5: {fileID: 11400000, guid: 7067a23d89415c444b3a100fa505bd02, type: 2}
   dc: {fileID: 207521408}
   charSelect: {fileID: 11400000, guid: d02e4bbf8535d394982275fd7ba77fdb, type: 2}
   next: {fileID: 0}
