@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     {
         if (type == "end")
         {
+            Debug.Log("Game ended with " + value);
+
             Cameras.ReturnToMain();
             if (value == "Caroline")
             {
@@ -20,6 +22,15 @@ public class GameManager : MonoBehaviour
             else
             {
                 LosePanel.SetActive(true);
+            }
+        }
+
+        if (type == "signal")
+        {
+            CameraSelectNetwork[] players = FindObjectsOfType<CameraSelectNetwork>();
+            foreach (CameraSelectNetwork p in players)
+            {
+                p.EndGame(value);
             }
         }
     }

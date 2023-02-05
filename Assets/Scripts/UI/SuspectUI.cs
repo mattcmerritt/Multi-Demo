@@ -37,6 +37,7 @@ public class SuspectUI : UILayer
         Submit.onClick.AddListener(() =>
         {
             GameManager gm = FindObjectOfType<GameManager>();
+            gm.InvokeGameChange("signal", Selected);
             gm.InvokeGameChange("end", Selected);
         });
     }

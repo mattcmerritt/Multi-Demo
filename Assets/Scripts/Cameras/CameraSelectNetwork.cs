@@ -16,6 +16,8 @@ public class CameraSelectNetwork : NetworkBehaviour
             NetworkVariableWritePermission.Owner
         );
 
+    private bool GameRunning = true;
+
     public override void OnNetworkSpawn()
     {
         Cameras = FindObjectOfType<CameraController>();
@@ -28,18 +30,33 @@ public class CameraSelectNetwork : NetworkBehaviour
         // do not accept input if this is not your player
         if (!IsOwner) return;
 
-        // Debug.Log(OwnerClientId);
-
         // Player 1 Code
-        if (OwnerClientId == 0)
+        if (OwnerClientId == 0 && GameRunning)
         {
             Cameras.Activate1();
         }
 
         // Player 2 Code
-        if (OwnerClientId == 1)
+        if (OwnerClientId == 1 && GameRunning)
         {
             Cameras.Activate2();
         }
+    }
+
+    public void EndGame(string name)
+    {
+        GameRunning = false;
+        // sending message to player 1 to end their game
+        EndGameClientRpc(name, new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> { 0 } } });
+        Debug.Log("Game over");
+    }
+
+    [ClientRpc]
+    public void EndGameClientRpc(string name, ClientRpcParams clientRpcParams)
+    {
+        GameRunning = false;
+        GameManager gm = FindObjectOfType<GameManager>();
+        gm.InvokeGameChange("end", name);
+        Debug.Log("Game over RPC");
     }
 }
