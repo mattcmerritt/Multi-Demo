@@ -47,12 +47,12 @@ public class CameraSelectNetwork : NetworkBehaviour
     {
         GameRunning = false;
         // sending message to player 1 to end their game
-        EndGameClientRpc(name, new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> { 0 } } });
+        EndGameServerRpc(name);
         Debug.Log("Game over");
     }
 
-    [ClientRpc]
-    public void EndGameClientRpc(string name, ClientRpcParams clientRpcParams)
+    [ServerRpc]
+    public void EndGameServerRpc(string name)
     {
         GameRunning = false;
         GameManager gm = FindObjectOfType<GameManager>();
