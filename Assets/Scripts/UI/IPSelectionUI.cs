@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -19,6 +20,7 @@ public struct NetworkAdapterData
 public class IPSelectionUI : UILayer
 {
     [SerializeField] private TMP_Dropdown IPDropdown;
+    [SerializeField] private TMP_Text AdapterDetails;
     [SerializeField] private Button CreateGameButton;
     [SerializeField] private TMP_InputField HostIPInput;
     [SerializeField] private Button ConnectButton;
@@ -39,6 +41,13 @@ public class IPSelectionUI : UILayer
             ipAddresses.Add(ad.ip);
         }
         IPDropdown.AddOptions(ipAddresses);
+        AdapterDetails.text = Adapters[0].deviceName;
+
+        // change label when the dropdown switches
+        IPDropdown.onValueChanged.AddListener((int i) =>
+        {
+            AdapterDetails.text = Adapters[i].deviceName;
+        });
 
         // change to host on selected IP address from dropdown
         CreateGameButton.onClick.AddListener(() =>
