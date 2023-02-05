@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: Marshall
   message: Well, Carlyle and him were fighting, and I decided to spend my time doing
-    a spa day day with them instead.
+    a spa day with them instead.
   callback: next
   parameters:
   - {fileID: 11400000, guid: a541b9ef70e3a03409722a42275375cf, type: 2}

@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 126e3b966b58324459880d218e488ee7, type: 3}
-  m_Name: intro4part2
+  m_Name: unimplemented
   m_EditorClassIdentifier: 
-  speaker: Agent Black
-  message: Forensics supposedly came back with anaphylactic shock from a peanut allergy,
-    but there are suspicions about whether the food was hidden from him with malicious
-    intent.
-  callback: next
+  speaker: 
+  message: Designers here - unfortunately we weren't able to implement any of this
+    character's dialogue yet. Sorry!
+  callback: character_select
   parameters:
-  - {fileID: 11400000, guid: 6fa53c38b7f1f134485805c3d98a4e26, type: 2}
+  - {fileID: 11400000, guid: d02e4bbf8535d394982275fd7ba77fdb, type: 2}
