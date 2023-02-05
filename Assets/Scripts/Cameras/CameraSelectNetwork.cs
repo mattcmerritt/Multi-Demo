@@ -51,7 +51,7 @@ public class CameraSelectNetwork : NetworkBehaviour
         Debug.Log("Game over");
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void EndGameServerRpc(string name)
     {
         GameRunning = false;
