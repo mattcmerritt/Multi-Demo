@@ -9,9 +9,9 @@ public class DialogueController : MonoBehaviour
 {
     public DialogueEntry activeEntry;
     public GameObject dialogueBox;
+    public GameObject speakerBox;
     public TMP_Text speaker;
     public TMP_Text message;
-    public Image character;
     private Coroutine writingCoroutine;
     public GameObject characterSelectUI;
     public GameObject conversationUI;
@@ -29,9 +29,8 @@ public class DialogueController : MonoBehaviour
     {
         speaker.text = activeEntry.speaker;
         message.text = "";
-        character.sprite = activeEntry.img;
 
-        characterSelectUI.SetActive(false);
+        speakerBox.SetActive(true);
         conversationUI.SetActive(true);
         dialogueBox.SetActive(true);
 
@@ -71,11 +70,26 @@ public class DialogueController : MonoBehaviour
             activeEntry = (DialogueEntry) parameters[0];
             StartDialogue();
         }
-        else if (callback == "return")
+        else if (callback == "character_select")
         {
-            conversationUI.SetActive(false);
             characterSelectUI.SetActive(true);
+            activeEntry = (DialogueEntry) parameters[0];
+            StartDialogue();
+            speakerBox.SetActive(false);
         }
+        else if (callback == "question_select")
+        {
+
+        }
+        else if (callback == "ignore")
+        {
+            // wait, this is for character select, maybe do something later if necessary?
+        }
+    }
+
+    void Start()
+    {
+        StartDialogue();
     }
 
     void Update()

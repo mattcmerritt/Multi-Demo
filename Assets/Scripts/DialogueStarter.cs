@@ -18,8 +18,6 @@ public class DialogueStarter : MonoBehaviour
     {
         dc.HandleCallback("next", new Object[] {entry});
 
-
-
         // destroy children questions buttons
         foreach (Transform t in questionsBox.transform)
         {

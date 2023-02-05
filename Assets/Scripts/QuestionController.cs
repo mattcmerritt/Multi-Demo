@@ -10,21 +10,17 @@ public class QuestionController : MonoBehaviour
     public Question[] character2Questions;
     public Question[] character3Questions;
     public Question[] character4Questions;
+    public Question[] character5Questions;
     public GameObject blankButton;
     public GameObject questionsBox;
     public Question[] activeQuestionSet;
 
     public void OnCharacterSelect(int number)
     {
-        // destroy children questions already there
-        foreach (Transform t in questionsBox.transform)
-        {
-            Destroy(t.gameObject);
-        }
-
         if(number == 1) 
         {
             activeQuestionSet = character1Questions;
+            // move character to center
         }
         else if (number == 2)
         {
@@ -34,9 +30,22 @@ public class QuestionController : MonoBehaviour
         {
             activeQuestionSet = character3Questions;
         }
-        else
+        else if (number == 4)
         {
             activeQuestionSet = character4Questions;
+        }
+        else
+        {
+            activeQuestionSet = character5Questions;
+        }
+    }
+
+    public void LoadQuestions()
+    {
+        // destroy children questions already there
+        foreach (Transform t in questionsBox.transform)
+        {
+            Destroy(t.gameObject);
         }
 
         foreach(Question q in activeQuestionSet)

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 126e3b966b58324459880d218e488ee7, type: 3}
-  m_Name: Test2
+  m_Name: intro4part2
   m_EditorClassIdentifier: 
-  speaker: Test 2
-  message: This is test dialogue entry two.
-  img: {fileID: 21300000, guid: 0424eb4f288c92a469d2b0c56f8bd5eb, type: 3}
+  speaker: Agent Black
+  message: Forensics supposedly came back with anaphylactic shock, but there are
+    suspicions as to whether the food was hidden from him with malicious intent.
   callback: next
   parameters:
-  - {fileID: 11400000, guid: 0654429d8cbe1dc4b9ee911839d0f812, type: 2}
+  - {fileID: 11400000, guid: 9b092c2eea1983b468eabcda416e7b40, type: 2}
